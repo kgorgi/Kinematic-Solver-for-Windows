@@ -42,12 +42,12 @@
             this.initVeloBtn = new System.Windows.Forms.RadioButton();
             this.accelBtn = new System.Windows.Forms.RadioButton();
             this.timeBtn = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.displacementUnitLabel = new System.Windows.Forms.Label();
+            this.timeUnitLabel = new System.Windows.Forms.Label();
+            this.accelUnit1Label = new System.Windows.Forms.Label();
+            this.initVeloUnitLabel = new System.Windows.Forms.Label();
+            this.finVeloUnitLabel = new System.Windows.Forms.Label();
+            this.accelUnit2Label = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.titleImage = new System.Windows.Forms.PictureBox();
@@ -60,7 +60,6 @@
             this.displacementTextBox.Name = "displacementTextBox";
             this.displacementTextBox.Size = new System.Drawing.Size(214, 20);
             this.displacementTextBox.TabIndex = 0;
-            this.displacementTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // displacementLabel
             // 
@@ -70,7 +69,6 @@
             this.displacementLabel.Name = "displacementLabel";
             this.displacementLabel.Size = new System.Drawing.Size(0, 21);
             this.displacementLabel.TabIndex = 1;
-            this.displacementLabel.Click += new System.EventHandler(this.DisplacementLabel_Click);
             // 
             // timeTextBox
             // 
@@ -120,6 +118,7 @@
             this.displacementBtn.TabStop = true;
             this.displacementBtn.Text = " Displacement:";
             this.displacementBtn.UseVisualStyleBackColor = true;
+            this.displacementBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
             // 
             // finVeloBtn
             // 
@@ -132,6 +131,7 @@
             this.finVeloBtn.TabStop = true;
             this.finVeloBtn.Text = " Final Velocity:";
             this.finVeloBtn.UseVisualStyleBackColor = true;
+            this.finVeloBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
             // 
             // initVeloBtn
             // 
@@ -144,6 +144,7 @@
             this.initVeloBtn.TabStop = true;
             this.initVeloBtn.Text = " Initial Velocity:";
             this.initVeloBtn.UseVisualStyleBackColor = true;
+            this.initVeloBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
             // 
             // accelBtn
             // 
@@ -156,6 +157,7 @@
             this.accelBtn.TabStop = true;
             this.accelBtn.Text = " Acceleration:";
             this.accelBtn.UseVisualStyleBackColor = true;
+            this.accelBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
             // 
             // timeBtn
             // 
@@ -168,66 +170,67 @@
             this.timeBtn.TabStop = true;
             this.timeBtn.Text = " Time:";
             this.timeBtn.UseVisualStyleBackColor = true;
+            this.timeBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
             // 
-            // label1
+            // displacementUnitLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(418, 206);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 18);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "m";
+            this.displacementUnitLabel.AutoSize = true;
+            this.displacementUnitLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.displacementUnitLabel.Location = new System.Drawing.Point(418, 206);
+            this.displacementUnitLabel.Name = "displacementUnitLabel";
+            this.displacementUnitLabel.Size = new System.Drawing.Size(24, 18);
+            this.displacementUnitLabel.TabIndex = 16;
+            this.displacementUnitLabel.Text = "m";
             // 
-            // label2
+            // timeUnitLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(418, 235);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 18);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "s";
+            this.timeUnitLabel.AutoSize = true;
+            this.timeUnitLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.timeUnitLabel.Location = new System.Drawing.Point(418, 235);
+            this.timeUnitLabel.Name = "timeUnitLabel";
+            this.timeUnitLabel.Size = new System.Drawing.Size(17, 18);
+            this.timeUnitLabel.TabIndex = 17;
+            this.timeUnitLabel.Text = "s";
             // 
-            // label3
+            // accelUnit1Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(418, 262);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 18);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "m/s";
+            this.accelUnit1Label.AutoSize = true;
+            this.accelUnit1Label.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.accelUnit1Label.Location = new System.Drawing.Point(418, 262);
+            this.accelUnit1Label.Name = "accelUnit1Label";
+            this.accelUnit1Label.Size = new System.Drawing.Size(44, 18);
+            this.accelUnit1Label.TabIndex = 18;
+            this.accelUnit1Label.Text = "m/s";
             // 
-            // label4
+            // initVeloUnitLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(418, 287);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 18);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "m/s";
+            this.initVeloUnitLabel.AutoSize = true;
+            this.initVeloUnitLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.initVeloUnitLabel.Location = new System.Drawing.Point(418, 287);
+            this.initVeloUnitLabel.Name = "initVeloUnitLabel";
+            this.initVeloUnitLabel.Size = new System.Drawing.Size(44, 18);
+            this.initVeloUnitLabel.TabIndex = 19;
+            this.initVeloUnitLabel.Text = "m/s";
             // 
-            // label5
+            // finVeloUnitLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(418, 314);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 18);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "m/s";
+            this.finVeloUnitLabel.AutoSize = true;
+            this.finVeloUnitLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.finVeloUnitLabel.Location = new System.Drawing.Point(418, 314);
+            this.finVeloUnitLabel.Name = "finVeloUnitLabel";
+            this.finVeloUnitLabel.Size = new System.Drawing.Size(44, 18);
+            this.finVeloUnitLabel.TabIndex = 20;
+            this.finVeloUnitLabel.Text = "m/s";
             // 
-            // label6
+            // accelUnit2Label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(458, 260);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "2";
+            this.accelUnit2Label.AutoSize = true;
+            this.accelUnit2Label.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
+            this.accelUnit2Label.Location = new System.Drawing.Point(458, 260);
+            this.accelUnit2Label.Name = "accelUnit2Label";
+            this.accelUnit2Label.Size = new System.Drawing.Size(15, 13);
+            this.accelUnit2Label.TabIndex = 21;
+            this.accelUnit2Label.Text = "2";
             // 
             // richTextBox1
             // 
@@ -238,7 +241,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(206, 183);
             this.richTextBox1.TabIndex = 22;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // imageList1
             // 
@@ -262,10 +264,10 @@
             this.ClientSize = new System.Drawing.Size(484, 371);
             this.Controls.Add(this.titleImage);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.finVeloUnitLabel);
+            this.Controls.Add(this.initVeloUnitLabel);
+            this.Controls.Add(this.timeUnitLabel);
+            this.Controls.Add(this.displacementUnitLabel);
             this.Controls.Add(this.timeBtn);
             this.Controls.Add(this.accelBtn);
             this.Controls.Add(this.initVeloBtn);
@@ -278,8 +280,8 @@
             this.Controls.Add(this.timeTextBox);
             this.Controls.Add(this.displacementLabel);
             this.Controls.Add(this.displacementTextBox);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.accelUnit2Label);
+            this.Controls.Add(this.accelUnit1Label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "KinematicSolverGUI";
@@ -305,12 +307,12 @@
         private System.Windows.Forms.RadioButton initVeloBtn;
         private System.Windows.Forms.RadioButton accelBtn;
         private System.Windows.Forms.RadioButton timeBtn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label displacementUnitLabel;
+        private System.Windows.Forms.Label timeUnitLabel;
+        private System.Windows.Forms.Label accelUnit1Label;
+        private System.Windows.Forms.Label initVeloUnitLabel;
+        private System.Windows.Forms.Label finVeloUnitLabel;
+        private System.Windows.Forms.Label accelUnit2Label;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox titleImage;
