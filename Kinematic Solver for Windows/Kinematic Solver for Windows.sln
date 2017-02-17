@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinematic Solver for Windows", "Kinematic Solver for Windows\Kinematic Solver for Windows.csproj", "{A7D69152-A6D5-460E-8465-482608BA69AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinematicComputerUnitTests", "KinematicComputerUnitTests\KinematicComputerUnitTests.csproj", "{50AEE6FC-F756-4673-8E03-0CB5E1272C98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A7D69152-A6D5-460E-8465-482608BA69AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7D69152-A6D5-460E-8465-482608BA69AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7D69152-A6D5-460E-8465-482608BA69AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50AEE6FC-F756-4673-8E03-0CB5E1272C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50AEE6FC-F756-4673-8E03-0CB5E1272C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50AEE6FC-F756-4673-8E03-0CB5E1272C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50AEE6FC-F756-4673-8E03-0CB5E1272C98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

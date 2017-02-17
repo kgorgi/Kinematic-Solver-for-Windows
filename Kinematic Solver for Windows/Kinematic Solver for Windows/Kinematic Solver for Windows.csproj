@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KinematicComputer.cs" />
     <Compile Include="KinematicSolverGUI.cs">
       <SubType>Form</SubType>
     </Compile>

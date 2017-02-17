@@ -61,5 +61,10 @@ namespace Kinematic_Solver_for_Windows
                 break;
             }           
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
