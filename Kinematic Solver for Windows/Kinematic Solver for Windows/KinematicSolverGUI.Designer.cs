@@ -51,6 +51,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.titleImage = new System.Windows.Forms.PictureBox();
+            this.clearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -278,11 +279,22 @@
             this.titleImage.TabIndex = 23;
             this.titleImage.TabStop = false;
             // 
+            // clearBtn
+            // 
+            this.clearBtn.Location = new System.Drawing.Point(20, 520);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 35);
+            this.clearBtn.TabIndex = 24;
+            this.clearBtn.Text = "Clear All";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearFields);
+            // 
             // KinematicSolverGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 571);
+            this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.titleImage);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.finVeloUnitLabel);
@@ -338,6 +350,7 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox titleImage;
+        private System.Windows.Forms.Button clearBtn;
     }
 }
 

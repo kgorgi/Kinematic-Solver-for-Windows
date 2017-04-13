@@ -66,5 +66,14 @@ namespace Kinematic_Solver_for_Windows
         {
 
         }
+
+        private void clearFields(object sender, EventArgs e)
+        {
+            displacementTextBox.Text = "";
+            timeTextBox.Text = "";
+            accelTextBox.Text = "";
+            initVeloTextBox.Text = "";
+            finVeloTextBox.Text = "";
+        }
     }
 }
