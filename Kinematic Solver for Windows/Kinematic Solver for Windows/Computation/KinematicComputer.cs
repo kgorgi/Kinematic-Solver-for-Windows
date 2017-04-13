@@ -51,11 +51,31 @@ namespace Kinematic_Solver_for_Windows
             set { _Vf = new DoubleNumber(value); }
         }
 
-        protected void checkRadical(double value)
+        protected void CheckRadical(double value)
         {
             if(value < 0)
             {
                 throw new InvalidScenarioException();
+            }
+        }
+
+        public void CanCompute()
+        {
+            int count = 0;
+            if(_D != null)
+                count++;
+            if (_T != null)
+                count++;
+            if (_A != null)
+                count++;
+            if (_Vi != null)
+                count++;
+            if (_Vf != null)
+                count++;
+            
+            if(count != 3)
+            {
+                throw new VariablesNotSetException("Only " + count.ToString() + "out of 3 Variables Set!");
             }
         }
     }

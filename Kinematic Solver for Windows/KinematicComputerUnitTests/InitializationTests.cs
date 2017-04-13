@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Kinematic_Solver_for_Windows;
+using Kinematic_Solver_for_Windows.Exceptions;
 
 namespace KinematicComputerUnitTests
 {
@@ -70,6 +71,27 @@ namespace KinematicComputerUnitTests
             KinematicComputer compute = new KinematicComputer();
             compute.Vf = finVelo;
             Assert.AreEqual(finVelo, compute.Vf, 0, "Final Velocity failed to be set correctly.");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(VariablesNotSetException))]
+        public void NotEnoughtVariablesSet()
+        {
+            KinematicComputer compute = new KinematicComputer();
+            compute.Vf = 0;
+            compute.CanCompute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(VariablesNotSetException))]
+        public void TooManyVariablesSet()
+        {
+            KinematicComputer compute = new KinematicComputer();
+            compute.D = 0;
+            compute.T = 2;
+            compute.A = 0;
+            compute.Vf = 0;
+            compute.CanCompute();
         }
     }
 

@@ -10,8 +10,7 @@ namespace Kinematic_Solver_for_Windows
     {
         private double ans;
         public double CalculateAcceleration()
-        {
-
+        { 
             if (_D == null)
             {
                 ans = (this.Vf - this.Vi) / this.T;

@@ -19,7 +19,7 @@ namespace Kinematic_Solver_for_Windows
             else if (_T == null)
             {
                 double insideRadical = (this.Vi * this.Vi) + (2 * this.A * this.D);
-                checkRadical(insideRadical);
+                CheckRadical(insideRadical);
                 throw new TwoPossibleAnswersException(Math.Sqrt(insideRadical));
             }
             else if (_A == null)
