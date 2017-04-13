@@ -25,6 +25,14 @@ namespace KinematicComputerUnitTests
             IterateVariables(-95, 5, -4, -34, -6);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException))]
+        public void DivideByZero()
+        {
+            SolveAcceleration SA = InitTest(0, -1, 5, 5, 1);
+            SA.CalculateAcceleration();
+        }
+
         private static SolveAcceleration InitTest(double D, double T, double Vi, double Vf, int skip)
         {
             SolveAcceleration compute = new SolveAcceleration();

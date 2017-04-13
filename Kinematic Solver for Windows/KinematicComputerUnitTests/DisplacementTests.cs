@@ -25,6 +25,14 @@ namespace KinematicComputerUnitTests
             IterateVariables(5, -6, -4, -34, -95);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException))]
+        public void DivideByZero()
+        {
+            SolveDisplacement SD = InitTest(-1, 0, 5, 5, 0);
+            SD.CalculateDisplacement();
+        }
+
         private static SolveDisplacement InitTest(double T, double A, double Vi, double Vf, int skip)
         {
             SolveDisplacement compute = new SolveDisplacement();

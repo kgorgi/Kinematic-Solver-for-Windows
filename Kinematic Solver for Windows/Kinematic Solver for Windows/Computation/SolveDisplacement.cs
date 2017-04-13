@@ -13,6 +13,10 @@ namespace Kinematic_Solver_for_Windows
         {
             if (_T == null)
             {
+                if(this.A == 0)
+                {
+                    throw new DivideByZeroException();
+                }
                 ans = ((this.Vf * this.Vf) - (this.Vi * this.Vi)) / (2 * this.A);
             }
             else if (_A == null)
