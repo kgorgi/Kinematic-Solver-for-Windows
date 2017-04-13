@@ -53,8 +53,10 @@
     <Compile Include="KinematicSolverGUI.Designer.cs">
       <DependentUpon>KinematicSolverGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoubleNumber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolveDisplacement.cs" />
     <EmbeddedResource Include="KinematicSolverGUI.resx">
       <DependentUpon>KinematicSolverGUI.cs</DependentUpon>
     </EmbeddedResource>
