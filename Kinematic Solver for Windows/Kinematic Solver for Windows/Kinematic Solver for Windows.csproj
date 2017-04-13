@@ -56,6 +56,7 @@
     <Compile Include="DoubleNumber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolveAcceleration.cs" />
     <Compile Include="SolveDisplacement.cs" />
     <EmbeddedResource Include="KinematicSolverGUI.resx">
       <DependentUpon>KinematicSolverGUI.cs</DependentUpon>

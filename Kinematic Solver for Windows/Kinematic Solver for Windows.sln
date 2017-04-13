@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinematic Solver for Windows", "Kinematic Solver for Windows\Kinematic Solver for Windows.csproj", "{A7D69152-A6D5-460E-8465-482608BA69AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinematicComputerUnitTests", "KinematicComputerUnitTests\KinematicComputerUnitTests.csproj", "{50AEE6FC-F756-4673-8E03-0CB5E1272C98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinematic Solver Unit Tests", "KinematicComputerUnitTests\Kinematic Solver Unit Tests.csproj", "{50AEE6FC-F756-4673-8E03-0CB5E1272C98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

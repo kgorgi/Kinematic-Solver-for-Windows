@@ -9,7 +9,7 @@ namespace Kinematic_Solver_for_Windows
     public class SolveDisplacement:KinematicComputer
     {
         private double ans;
-        public double CalcuateDisplacement()
+        public double CalculateDisplacement()
         {
             if (_T == null)
             {
