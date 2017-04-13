@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Computation\KinematicComputer.cs" />
+    <Compile Include="Computation\SolveFinVelocity.cs" />
     <Compile Include="Exceptions\TwoPossibleAnswersException.cs" />
     <Compile Include="Exceptions\InvalidScenarioException.cs" />
     <Compile Include="KinematicSolverGUI.cs">
