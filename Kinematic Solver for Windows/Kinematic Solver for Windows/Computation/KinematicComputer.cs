@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kinematic_Solver_for_Windows.Exceptions;
 
 namespace Kinematic_Solver_for_Windows
 {
@@ -48,6 +49,14 @@ namespace Kinematic_Solver_for_Windows
         {
             get { return _Vf.num; }
             set { _Vf = new DoubleNumber(value); }
+        }
+
+        protected void checkRadical(double value)
+        {
+            if(value < 0)
+            {
+                throw new InvalidScenarioException();
+            }
         }
     }
 }
