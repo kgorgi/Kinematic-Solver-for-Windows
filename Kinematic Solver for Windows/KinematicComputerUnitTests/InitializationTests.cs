@@ -110,31 +110,31 @@ namespace KinematicComputerUnitTests
             {
                 Assert.AreEqual(compute.D, null);
             }
-            catch (NullReferenceException ex) { }
+            catch (NullReferenceException) { }
 
             try
             {
                 Assert.AreEqual(compute.T, null);
             }
-            catch (NullReferenceException ex) { }
+            catch (NullReferenceException) { }
 
             try
             {
                 Assert.AreEqual(compute.A, null);
             }
-            catch (NullReferenceException ex) { }
+            catch (NullReferenceException) { }
 
             try
             {
                 Assert.AreEqual(compute.Vi, null);
             }
-            catch (NullReferenceException ex) { }
+            catch (NullReferenceException) { }
 
             try
             {
                 Assert.AreEqual(compute.Vf, null);
             }
-            catch (NullReferenceException ex) { }
+            catch (NullReferenceException) { }
 
         }
     }

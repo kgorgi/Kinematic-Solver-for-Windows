@@ -7,10 +7,10 @@ using Kinematic_Solver_for_Windows.Exceptions;
 
 namespace Kinematic_Solver_for_Windows
 {
-    public class SolveInitVelocity:KinematicComputer
+    public class SolveInitalVelocity:KinematicComputer
     {
         private double ans;
-        public double CalculateInitVelocity()
+        public double CalculateInitialVelocity()
         {
             this.CanCompute();
             if (_D == null)

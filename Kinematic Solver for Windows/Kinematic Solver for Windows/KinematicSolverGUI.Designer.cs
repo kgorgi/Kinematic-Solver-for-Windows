@@ -114,6 +114,7 @@
             this.calcBtn.TabIndex = 10;
             this.calcBtn.Text = "Calculate";
             this.calcBtn.UseVisualStyleBackColor = true;
+            this.calcBtn.Click += new System.EventHandler(this.calcBtn_Click);
             // 
             // displacementBtn
             // 
@@ -320,7 +321,6 @@
             this.MaximizeBox = false;
             this.Name = "KinematicSolverGUI";
             this.Text = "Kinematic Solver for Windows";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

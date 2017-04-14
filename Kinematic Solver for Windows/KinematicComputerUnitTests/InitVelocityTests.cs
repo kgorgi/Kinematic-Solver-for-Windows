@@ -30,13 +30,13 @@ namespace KinematicComputerUnitTests
         [ExpectedException(typeof(InvalidScenarioException))]
         public void ImpossibleScenario()
         {
-            SolveInitVelocity com = InitTest(1, -1, 1, 0.5, 1);
-            com.CalculateInitVelocity();   
+            SolveInitalVelocity com = InitTest(1, -1, 1, 0.5, 1);
+            com.CalculateInitialVelocity();   
        }
 
-        private static SolveInitVelocity InitTest(double D, double T, double A, double Vf, int skip)
+        private static SolveInitalVelocity InitTest(double D, double T, double A, double Vf, int skip)
         {
-            SolveInitVelocity compute = new SolveInitVelocity();
+            SolveInitalVelocity compute = new SolveInitalVelocity();
             if (skip != 0)
             {
                 compute.D = D;
@@ -62,11 +62,11 @@ namespace KinematicComputerUnitTests
             int i;
             for (i = 0; i < 4; i++)
             {
-                SolveInitVelocity com = InitTest(D, T, A, Vf, i);
+                SolveInitalVelocity com = InitTest(D, T, A, Vf, i);
 
                 try
                 {
-                    Assert.AreEqual(ans, com.CalculateInitVelocity(), "Variable Skipped #: " + i.ToString());
+                    Assert.AreEqual(ans, com.CalculateInitialVelocity(), "Variable Skipped #: " + i.ToString());
                 }
                 catch (TwoPossibleAnswersException ex)
                 {
