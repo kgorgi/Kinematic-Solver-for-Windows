@@ -59,6 +59,15 @@ namespace Kinematic_Solver_for_Windows
             }
         }
 
+        public void ClearVariables()
+        {
+            _D = null;
+            _T = null;
+            _A = null;
+            _Vi = null;
+            _Vf = null;
+        }
+
         public void CanCompute()
         {
             int count = 0;

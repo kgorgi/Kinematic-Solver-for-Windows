@@ -93,6 +93,50 @@ namespace KinematicComputerUnitTests
             compute.Vf = 0;
             compute.CanCompute();
         }
+
+        [TestMethod]
+        public void ClearVariables()
+        {
+            KinematicComputer compute = new KinematicComputer();
+            compute.D = 0;
+            compute.T = 2;
+            compute.A = 0;
+            compute.Vi = 5;
+            compute.Vf = 0;
+
+            compute.ClearVariables();
+
+            try
+            {
+                Assert.AreEqual(compute.D, null);
+            }
+            catch (NullReferenceException ex) { }
+
+            try
+            {
+                Assert.AreEqual(compute.T, null);
+            }
+            catch (NullReferenceException ex) { }
+
+            try
+            {
+                Assert.AreEqual(compute.A, null);
+            }
+            catch (NullReferenceException ex) { }
+
+            try
+            {
+                Assert.AreEqual(compute.Vi, null);
+            }
+            catch (NullReferenceException ex) { }
+
+            try
+            {
+                Assert.AreEqual(compute.Vf, null);
+            }
+            catch (NullReferenceException ex) { }
+
+        }
     }
 
     [TestClass]

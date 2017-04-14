@@ -8,7 +8,8 @@ namespace Kinematic_Solver_for_Windows.Exceptions
 {
     public class TwoPossibleAnswersException:Exception
     {
-        private double _cValue;
+        private double _firstValue;
+        private double _secondValue;
         public TwoPossibleAnswersException()
         {
         }
@@ -19,15 +20,20 @@ namespace Kinematic_Solver_for_Windows.Exceptions
 
         }
 
-        public TwoPossibleAnswersException(double value)
+        public TwoPossibleAnswersException(double value1, double value2)
         {
-            _cValue = value;
+            _firstValue = value1;
+            _secondValue = value2;
         }
 
-        public double ConflictingValue
+        public double FirstValue
         {
-            get { return _cValue; }
+            get { return _firstValue; }
         }
 
+        public double SecondValue
+        {
+            get { return _secondValue; }
+        }
     }
 }

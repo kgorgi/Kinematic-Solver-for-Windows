@@ -12,6 +12,7 @@ namespace Kinematic_Solver_for_Windows
         private double ans;
         public double CalculateFinVelocity()
         {
+            this.CanCompute();
             if (_D == null)
             {
                 ans = (this.A * this.T) + this.Vi;
@@ -20,7 +21,8 @@ namespace Kinematic_Solver_for_Windows
             {
                 double insideRadical = (this.Vi * this.Vi) + (2 * this.A * this.D);
                 CheckRadical(insideRadical);
-                throw new TwoPossibleAnswersException(Math.Sqrt(insideRadical));
+                ans = Math.Sqrt(insideRadical);
+                throw new TwoPossibleAnswersException(ans, ans * -1);
             }
             else if (_A == null)
             {

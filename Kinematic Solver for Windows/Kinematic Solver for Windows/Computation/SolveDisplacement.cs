@@ -11,6 +11,7 @@ namespace Kinematic_Solver_for_Windows
         private double ans;
         public double CalculateDisplacement()
         {
+           this. CanCompute();
             if (_T == null)
             {
                 if(this.A == 0)

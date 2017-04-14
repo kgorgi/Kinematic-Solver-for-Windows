@@ -70,7 +70,9 @@ namespace KinematicComputerUnitTests
                 }
                 catch (TwoPossibleAnswersException ex)
                 {
-                    Assert.AreEqual(Math.Abs(ans), Math.Abs(ex.ConflictingValue), "Variable Skipped #: " + i.ToString());
+                    double ansABS = Math.Abs(ans);
+                    Assert.AreEqual(ansABS, Math.Abs(ex.FirstValue), "Variable Skipped #: " + i.ToString());
+                    Assert.AreEqual(ansABS, Math.Abs(ex.SecondValue), "Variable Skipped #: " + i.ToString());
                 }   
             }
         }
