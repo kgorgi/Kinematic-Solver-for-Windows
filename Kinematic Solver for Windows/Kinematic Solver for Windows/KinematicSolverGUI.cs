@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kinematic_Solver_for_Windows.Exceptions;
+using System;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -51,11 +52,6 @@ namespace Kinematic_Solver_for_Windows
             }           
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void clearFields(object sender, EventArgs e)
         {
             displacementTextBox.Text = "";
@@ -71,7 +67,7 @@ namespace Kinematic_Solver_for_Windows
             
             String ClassName = null;
             Type classType = null;
-            double answer;
+            double answer = 0;
             int pos = 0;
 
             //Reflectively Create Appropriate Class
@@ -83,7 +79,7 @@ namespace Kinematic_Solver_for_Windows
                 {
                     String VariableName = radio.Text.Replace(" ", string.Empty);
                     ClassName = VariableName.Substring(0, VariableName.Length - 1);
-                    System.Diagnostics.Debug.WriteLine(ClassName.ToString());
+                    //System.Diagnostics.Debug.WriteLine(ClassName.ToString());
                     classType = Type.GetType("Kinematic_Solver_for_Windows.Solve"+ ClassName);
                     calc = (KinematicComputer)Activator.CreateInstance(classType);
                     break;  
@@ -98,8 +94,15 @@ namespace Kinematic_Solver_for_Windows
             }
             if (!timeBtn.Checked && String.Compare(timeTextBox.Text, "") != 0)
             {
-                //TRY CATCH
-                calc.T = double.Parse(timeTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                try
+                {
+                    calc.T = double.Parse(timeTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Time Cannot be Zero or Negative!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }  
             }
             if (!accelBtn.Checked && String.Compare(accelTextBox.Text, "") != 0)
             {
@@ -117,11 +120,56 @@ namespace Kinematic_Solver_for_Windows
             //Reflectively Call Calculate Method on Child Class of KinematicComputer
             MethodInfo CalcMethod = classType.GetMethod("Calculate" + ClassName);
             //System.Diagnostics.Debug.WriteLine("Calculate" + ClassName);  
-            answer = (double) CalcMethod.Invoke(calc, null);
+            try
+            {
+                answer = (double)CalcMethod.Invoke(calc, null);
+            }
+            catch (TargetInvocationException ex)
+            {
+                Exception innerEx = ex.InnerException;
+                if(innerEx is DivideByZeroException)
+                {
+                    String msg = "Invalid Physics Scenario: Cannot Divide by Zero!";
+                    MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if(innerEx is InvalidScenarioException)
+                {
+                    String msg = "Invalid Physics Scenario: Cannot Square Root a Zero or Negative Number!";
+                    MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                } 
+                else if(innerEx is VariablesNotSetException)
+                {
+                    String msg = "Please Enter Exactly 3 Variables for Calculation";
+                    MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if(innerEx is TwoPossibleAnswersException)
+                {
+                    TwoPossibleAnswersException TwoEx = (TwoPossibleAnswersException)innerEx;
+                    String msg = "Two Possible Answers!\n Answer 1: " + TwoEx.FirstValue.ToString() +
+                                "     Answer 2: " + TwoEx.SecondValue.ToString() + "\n Is Answer 1 the correct answer?\n" +
+                                " Select Yes if Answer 1 is.\n Otherwise select No if Answer 2 is correct. ";
+                    switch(MessageBox.Show(msg, "Two Possible Answers!", MessageBoxButtons.YesNoCancel, 
+                                        MessageBoxIcon.Question))
+                    {
+                        case DialogResult.Yes:
+                            answer = TwoEx.FirstValue;
+                            break;
+                        case DialogResult.No:
+                            answer = TwoEx.SecondValue;
+                            break;
+                        default:
+                            return;
+                    }
+                }
+            }
 
             //Display Answer
             String[] Units = { "m", "s", "m/s^2", "m/s", "m/s" };
-            MessageBox.Show("The answer is: " + answer.ToString() + " " + Units[pos], ClassName);
+            String ansStr = "The answer is: " + answer.ToString() + " " + Units[pos];
+            MessageBox.Show(ansStr, ClassName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

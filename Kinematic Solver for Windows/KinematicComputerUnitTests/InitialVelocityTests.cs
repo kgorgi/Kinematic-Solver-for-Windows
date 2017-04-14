@@ -6,37 +6,37 @@ using Kinematic_Solver_for_Windows.Exceptions;
 namespace KinematicComputerUnitTests
 {
     [TestClass]
-    public class FinVelocityTests
+    public class InitialVelocityTests
     {
         [TestMethod]
         public void Basic()
         {
-            IterateVariables(337.5, 5, 15, 30, 105);
+            IterateVariables(337.5, 5, 15, 105, 30);
         }
 
         [TestMethod]
         public void Decimals()
         {
-            IterateVariables(46.75, 5.5, 2, 3, 14);
+            IterateVariables(46.75, 5.5, 2, 14, 3);
         }
 
         [TestMethod]
         public void Negative()
         {
-            IterateVariables(-95, 5, -6, -4, -34);
+            IterateVariables(-95, 5, -6, -34, -4);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidScenarioException))]
         public void ImpossibleScenario()
         {
-            SolveFinalVelocity com = InitTest(1, -1, -5, 0.5, 1);
-            com.CalculateFinalVelocity();   
+            SolveInitialVelocity com = InitTest(1, -1, 1, 0.5, 1);
+            com.CalculateInitialVelocity();   
        }
 
-        private static SolveFinalVelocity InitTest(double D, double T, double A, double Vi, int skip)
+        private static SolveInitialVelocity InitTest(double D, double T, double A, double Vf, int skip)
         {
-            SolveFinalVelocity compute = new SolveFinalVelocity();
+            SolveInitialVelocity compute = new SolveInitialVelocity();
             if (skip != 0)
             {
                 compute.D = D;
@@ -51,22 +51,22 @@ namespace KinematicComputerUnitTests
             }
             if (skip != 3)
             {
-                compute.Vi = Vi;
+                compute.Vf = Vf;
             }
 
             return compute;
         }
 
-        private static void IterateVariables(double D, double T, double A, double Vi, double ans)
+        private static void IterateVariables(double D, double T, double A, double Vf, double ans)
         {
             int i;
             for (i = 0; i < 4; i++)
             {
-                SolveFinalVelocity com = InitTest(D, T, A, Vi, i);
+                SolveInitialVelocity com = InitTest(D, T, A, Vf, i);
 
                 try
                 {
-                    Assert.AreEqual(ans, com.CalculateFinalVelocity(), "Variable Skipped #: " + i.ToString());
+                    Assert.AreEqual(ans, com.CalculateInitialVelocity(), "Variable Skipped #: " + i.ToString());
                 }
                 catch (TwoPossibleAnswersException ex)
                 {

@@ -84,7 +84,7 @@ namespace Kinematic_Solver_for_Windows
             
             if(count != 3)
             {
-                throw new VariablesNotSetException("Only " + count.ToString() + "out of 3 Variables Set!");
+                throw new VariablesNotSetException(count.ToString() + " out of 3 Variables Set!");
             }
         }
     }

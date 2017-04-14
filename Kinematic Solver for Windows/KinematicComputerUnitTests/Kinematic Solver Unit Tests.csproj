@@ -53,8 +53,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="TimeTests.cs" />
-    <Compile Include="FinVelocityTests.cs" />
-    <Compile Include="InitVelocityTests.cs" />
+    <Compile Include="FinalVelocityTests.cs" />
+    <Compile Include="InitialVelocityTests.cs" />
     <Compile Include="AccelerationTests.cs" />
     <Compile Include="InitializationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

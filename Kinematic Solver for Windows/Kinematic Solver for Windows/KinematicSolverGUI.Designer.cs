@@ -51,7 +51,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.titleImage = new System.Windows.Forms.PictureBox();
-            this.clearBtn = new System.Windows.Forms.Button();
+            this.clearBtn = new System.Windows.Forms.Button();          
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,7 +262,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(307, 279);
             this.richTextBox1.TabIndex = 22;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // imageList1
             // 
@@ -319,6 +318,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
+            this.Menu = this.mainMenu1;
             this.Name = "KinematicSolverGUI";
             this.Text = "Kinematic Solver for Windows";
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).EndInit();
@@ -351,6 +351,9 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox titleImage;
         private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.MainMenu mainMenu1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     }
 }
 
