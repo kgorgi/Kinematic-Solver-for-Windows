@@ -318,7 +318,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.Menu = this.mainMenu1;
             this.Name = "KinematicSolverGUI";
             this.Text = "Kinematic Solver for Windows";
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).EndInit();
@@ -351,9 +350,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox titleImage;
         private System.Windows.Forms.Button clearBtn;
-        private System.Windows.Forms.MainMenu mainMenu1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     }
 }
 
