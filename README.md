@@ -1,3 +1,13 @@
-# Kinematic-Solver-for-Windows
+# Kinematic Solver for Windows
+## Synopsis:
+The Kinematic Equation Solver for Windows is a GUI Windows port of the project [Kinematic Equations Solver](https://github.com/kgorgi/Kinematic-Equation-Solver). This project is built using Visual Studio, the .NET Framework and the programming language C#. This application solves kinematic physics problems by using the five fundamental variables: displacement, time, acceleration, initial velocity, and final velocity. It can solve for any of the above variables, all is that is required is that the user enter three other variables and select one variable to be solved (which leaves one variable blank). 
 
-In development port of the Kinematic Equation Solver for C.
+To find more information about one dimensional kinematics please visit: 
+
+http://www.physicsclassroom.com/Physics-Tutorial/1-D-Kinematics
+
+## Motivation:
+The main motivation for this project is to learn how to create GUI applications on Windows computers in addition to applying the concepts of object oriented programming that I have learned through my academic studies. These concepts include reflection, polymorphism, inheritance, unit tests, and test driven development. 
+
+## Installation: 
+To use Kinematic Solver for Windows please download and unzip the "Kinematic_Solver_for_Windows.zip" file in the releases tab of this GitHub project. Please note that the current release of Kinematic Solver for Windows is a beta release, as there are unfinished features and assets in addition to possible bugs or unhandled exceptions. 
