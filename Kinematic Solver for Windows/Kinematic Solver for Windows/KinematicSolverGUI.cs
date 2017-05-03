@@ -190,5 +190,10 @@ namespace Kinematic_Solver_for_Windows
 
             MessageBox.Show(msg, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void KinematicSolverGUI_Load(object sender, EventArgs e)
+        {
+            this.Icon = Properties.Resources.icon;
+        }
     }
 }
