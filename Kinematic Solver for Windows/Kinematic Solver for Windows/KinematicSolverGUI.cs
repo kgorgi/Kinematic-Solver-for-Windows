@@ -171,5 +171,23 @@ namespace Kinematic_Solver_for_Windows
             String ansStr = "The answer is: " + answer.ToString() + " " + Units[pos];
             MessageBox.Show(ansStr, ClassName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String msg = "Kinematic Solver for Windows\n\n" +
+                         "Version 1.0.0\n\n" +
+                         "Design, Programming, Testing\n" +
+                         "Done By Kian Gorgichuk\n\n" +
+                         "Special Thanks to Ms. Bater!\n\n" +
+                         "Copyright (c) 2017 Kian Gorgichuk\n" +
+                         "All rights reserved.";
+
+            MessageBox.Show(msg, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

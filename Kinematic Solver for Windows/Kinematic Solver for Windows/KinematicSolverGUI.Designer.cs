@@ -51,13 +51,18 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.titleImage = new System.Windows.Forms.PictureBox();
-            this.clearBtn = new System.Windows.Forms.Button();          
+            this.clearBtn = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // displacementTextBox
             // 
-            this.displacementTextBox.Location = new System.Drawing.Point(297, 314);
+            this.displacementTextBox.Location = new System.Drawing.Point(292, 334);
             this.displacementTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.displacementTextBox.Name = "displacementTextBox";
             this.displacementTextBox.Size = new System.Drawing.Size(319, 26);
@@ -67,7 +72,7 @@
             // 
             this.displacementLabel.AutoSize = true;
             this.displacementLabel.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displacementLabel.Location = new System.Drawing.Point(58, 309);
+            this.displacementLabel.Location = new System.Drawing.Point(53, 329);
             this.displacementLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.displacementLabel.Name = "displacementLabel";
             this.displacementLabel.Size = new System.Drawing.Size(0, 32);
@@ -75,7 +80,7 @@
             // 
             // timeTextBox
             // 
-            this.timeTextBox.Location = new System.Drawing.Point(297, 360);
+            this.timeTextBox.Location = new System.Drawing.Point(292, 380);
             this.timeTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.timeTextBox.Name = "timeTextBox";
             this.timeTextBox.Size = new System.Drawing.Size(319, 26);
@@ -83,7 +88,7 @@
             // 
             // accelTextBox
             // 
-            this.accelTextBox.Location = new System.Drawing.Point(297, 400);
+            this.accelTextBox.Location = new System.Drawing.Point(292, 420);
             this.accelTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.accelTextBox.Name = "accelTextBox";
             this.accelTextBox.Size = new System.Drawing.Size(319, 26);
@@ -91,7 +96,7 @@
             // 
             // initVeloTextBox
             // 
-            this.initVeloTextBox.Location = new System.Drawing.Point(297, 440);
+            this.initVeloTextBox.Location = new System.Drawing.Point(292, 460);
             this.initVeloTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.initVeloTextBox.Name = "initVeloTextBox";
             this.initVeloTextBox.Size = new System.Drawing.Size(319, 26);
@@ -99,7 +104,7 @@
             // 
             // finVeloTextBox
             // 
-            this.finVeloTextBox.Location = new System.Drawing.Point(297, 480);
+            this.finVeloTextBox.Location = new System.Drawing.Point(292, 500);
             this.finVeloTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.finVeloTextBox.Name = "finVeloTextBox";
             this.finVeloTextBox.Size = new System.Drawing.Size(319, 26);
@@ -107,7 +112,7 @@
             // 
             // calcBtn
             // 
-            this.calcBtn.Location = new System.Drawing.Point(537, 520);
+            this.calcBtn.Location = new System.Drawing.Point(532, 540);
             this.calcBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.calcBtn.Name = "calcBtn";
             this.calcBtn.Size = new System.Drawing.Size(112, 35);
@@ -120,7 +125,7 @@
             // 
             this.displacementBtn.AutoSize = true;
             this.displacementBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displacementBtn.Location = new System.Drawing.Point(20, 314);
+            this.displacementBtn.Location = new System.Drawing.Point(15, 334);
             this.displacementBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.displacementBtn.Name = "displacementBtn";
             this.displacementBtn.Size = new System.Drawing.Size(238, 33);
@@ -134,7 +139,7 @@
             // 
             this.finVeloBtn.AutoSize = true;
             this.finVeloBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finVeloBtn.Location = new System.Drawing.Point(20, 477);
+            this.finVeloBtn.Location = new System.Drawing.Point(15, 497);
             this.finVeloBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.finVeloBtn.Name = "finVeloBtn";
             this.finVeloBtn.Size = new System.Drawing.Size(236, 33);
@@ -148,7 +153,7 @@
             // 
             this.initVeloBtn.AutoSize = true;
             this.initVeloBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.initVeloBtn.Location = new System.Drawing.Point(20, 435);
+            this.initVeloBtn.Location = new System.Drawing.Point(15, 455);
             this.initVeloBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.initVeloBtn.Name = "initVeloBtn";
             this.initVeloBtn.Size = new System.Drawing.Size(252, 33);
@@ -162,7 +167,7 @@
             // 
             this.accelBtn.AutoSize = true;
             this.accelBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accelBtn.Location = new System.Drawing.Point(20, 395);
+            this.accelBtn.Location = new System.Drawing.Point(15, 415);
             this.accelBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.accelBtn.Name = "accelBtn";
             this.accelBtn.Size = new System.Drawing.Size(223, 33);
@@ -176,7 +181,7 @@
             // 
             this.timeBtn.AutoSize = true;
             this.timeBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeBtn.Location = new System.Drawing.Point(20, 355);
+            this.timeBtn.Location = new System.Drawing.Point(15, 375);
             this.timeBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.timeBtn.Name = "timeBtn";
             this.timeBtn.Size = new System.Drawing.Size(121, 33);
@@ -190,7 +195,7 @@
             // 
             this.displacementUnitLabel.AutoSize = true;
             this.displacementUnitLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.displacementUnitLabel.Location = new System.Drawing.Point(627, 317);
+            this.displacementUnitLabel.Location = new System.Drawing.Point(622, 337);
             this.displacementUnitLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.displacementUnitLabel.Name = "displacementUnitLabel";
             this.displacementUnitLabel.Size = new System.Drawing.Size(38, 29);
@@ -201,7 +206,7 @@
             // 
             this.timeUnitLabel.AutoSize = true;
             this.timeUnitLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.timeUnitLabel.Location = new System.Drawing.Point(627, 362);
+            this.timeUnitLabel.Location = new System.Drawing.Point(622, 382);
             this.timeUnitLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timeUnitLabel.Name = "timeUnitLabel";
             this.timeUnitLabel.Size = new System.Drawing.Size(27, 29);
@@ -212,7 +217,7 @@
             // 
             this.accelUnit1Label.AutoSize = true;
             this.accelUnit1Label.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.accelUnit1Label.Location = new System.Drawing.Point(627, 403);
+            this.accelUnit1Label.Location = new System.Drawing.Point(622, 423);
             this.accelUnit1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.accelUnit1Label.Name = "accelUnit1Label";
             this.accelUnit1Label.Size = new System.Drawing.Size(69, 29);
@@ -223,7 +228,7 @@
             // 
             this.initVeloUnitLabel.AutoSize = true;
             this.initVeloUnitLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.initVeloUnitLabel.Location = new System.Drawing.Point(627, 442);
+            this.initVeloUnitLabel.Location = new System.Drawing.Point(622, 462);
             this.initVeloUnitLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.initVeloUnitLabel.Name = "initVeloUnitLabel";
             this.initVeloUnitLabel.Size = new System.Drawing.Size(69, 29);
@@ -234,7 +239,7 @@
             // 
             this.finVeloUnitLabel.AutoSize = true;
             this.finVeloUnitLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.finVeloUnitLabel.Location = new System.Drawing.Point(627, 483);
+            this.finVeloUnitLabel.Location = new System.Drawing.Point(622, 503);
             this.finVeloUnitLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.finVeloUnitLabel.Name = "finVeloUnitLabel";
             this.finVeloUnitLabel.Size = new System.Drawing.Size(69, 29);
@@ -245,7 +250,7 @@
             // 
             this.accelUnit2Label.AutoSize = true;
             this.accelUnit2Label.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
-            this.accelUnit2Label.Location = new System.Drawing.Point(687, 400);
+            this.accelUnit2Label.Location = new System.Drawing.Point(682, 420);
             this.accelUnit2Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.accelUnit2Label.Name = "accelUnit2Label";
             this.accelUnit2Label.Size = new System.Drawing.Size(19, 18);
@@ -255,7 +260,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(399, 18);
+            this.richTextBox1.Location = new System.Drawing.Point(394, 38);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
@@ -272,7 +277,7 @@
             // titleImage
             // 
             this.titleImage.Image = ((System.Drawing.Image)(resources.GetObject("titleImage.Image")));
-            this.titleImage.Location = new System.Drawing.Point(18, 18);
+            this.titleImage.Location = new System.Drawing.Point(13, 38);
             this.titleImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.titleImage.Name = "titleImage";
             this.titleImage.Size = new System.Drawing.Size(372, 282);
@@ -281,7 +286,7 @@
             // 
             // clearBtn
             // 
-            this.clearBtn.Location = new System.Drawing.Point(20, 520);
+            this.clearBtn.Location = new System.Drawing.Point(15, 540);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 35);
             this.clearBtn.TabIndex = 24;
@@ -289,11 +294,45 @@
             this.clearBtn.UseVisualStyleBackColor = true;
             this.clearBtn.Click += new System.EventHandler(this.clearFields);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(726, 33);
+            this.menuStrip1.TabIndex = 25;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.quitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
             // KinematicSolverGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 571);
+            this.ClientSize = new System.Drawing.Size(726, 587);
             this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.titleImage);
             this.Controls.Add(this.richTextBox1);
@@ -315,12 +354,16 @@
             this.Controls.Add(this.displacementTextBox);
             this.Controls.Add(this.accelUnit2Label);
             this.Controls.Add(this.accelUnit1Label);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "KinematicSolverGUI";
             this.Text = "Kinematic Solver for Windows";
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,6 +393,10 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox titleImage;
         private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
     }
 }
 
