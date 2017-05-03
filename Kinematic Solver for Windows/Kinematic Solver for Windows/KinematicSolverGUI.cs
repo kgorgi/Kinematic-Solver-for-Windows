@@ -168,8 +168,9 @@ namespace Kinematic_Solver_for_Windows
 
             //Display Answer
             String[] Units = { "m", "s", "m/s^2", "m/s", "m/s" };
-            String ansStr = "The answer is: " + answer.ToString() + " " + Units[pos];
-            MessageBox.Show(ansStr, ClassName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ClassName = ClassName.Replace("V", " V");
+            String ansStr = "The " + ClassName.ToLower() + " is: " + answer.ToString() + " " + Units[pos];
+            MessageBox.Show(ansStr, "Answer", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
