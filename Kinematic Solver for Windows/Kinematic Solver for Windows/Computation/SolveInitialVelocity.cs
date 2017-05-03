@@ -13,26 +13,26 @@ namespace Kinematic_Solver_for_Windows
         public double CalculateInitialVelocity()
         {
             this.CanCompute();
-            if (_D == null)
+            if (this._D == null)
             {
-                ans = this.Vf - (this.A * this.T);
+                this.ans = this.Vf - (this.A * this.T);
             }
-            else if (_T == null)
+            else if (this._T == null)
             {
                 double insideRadical = (Vf * Vf) - (2 * A * D);
-                CheckRadical(insideRadical);
+                this.CheckRadical(insideRadical);
                 double radical = Math.Sqrt(insideRadical);
                 throw new TwoPossibleAnswersException(radical, radical * -1);
             }
-            else if (_A == null)
+            else if (this._A == null)
             {
-                ans = ((2 * this.D) / this.T) - this.Vf;
+                this.ans = ((2 * this.D) / this.T) - this.Vf;
             }
-            else if (_Vf == null)
+            else if (this._Vf == null)
             {
-                ans = (this.D - (0.5 * this.A * (this.T * this.T))) / this.T;
+                this.ans = (this.D - (0.5 * this.A * (this.T * this.T))) / this.T;
             } 
-            return ans;
+            return this.ans;
         }
     }
 }

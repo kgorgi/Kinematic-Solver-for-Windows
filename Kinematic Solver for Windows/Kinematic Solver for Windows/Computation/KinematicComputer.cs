@@ -17,74 +17,85 @@ namespace Kinematic_Solver_for_Windows
 
         public double D
         {
-            get { return _D.num; }
-            set { _D = new DoubleNumber(value); }
+            get { return this._D.Num; }
+            set { this._D = new DoubleNumber(value); }
         }
 
         public double T
         {
-            get { return _T.num; }
-            set {
-               if(value <= 0)
+            get { return this._T.Num; }
+            set
+            {
+                if(value <= 0)
                 {
                     throw new ArgumentException("Time cannot be set to zero or negative.");
                 }
-                _T = new DoubleNumber(value);
+                this._T = new DoubleNumber(value);
             }
         }
 
         public double A
         {
-            get { return _A.num; }
-            set { _A = new DoubleNumber(value); }
+            get { return this._A.Num; }
+            set { this._A = new DoubleNumber(value); }
         }
 
         public double Vi
         {
-            get { return _Vi.num; }
-            set { _Vi = new DoubleNumber(value); }
+            get { return this._Vi.Num; }
+            set { this._Vi = new DoubleNumber(value); }
         }
 
         public double Vf
         {
-            get { return _Vf.num; }
-            set { _Vf = new DoubleNumber(value); }
-        }
-
-        protected void CheckRadical(double value)
-        {
-            if(value < 0)
-            {
-                throw new InvalidScenarioException();
-            }
+            get { return this._Vf.Num; }
+            set { this._Vf = new DoubleNumber(value); }
         }
 
         public void ClearVariables()
         {
-            _D = null;
-            _T = null;
-            _A = null;
-            _Vi = null;
-            _Vf = null;
+            this._D = null;
+            this._T = null;
+            this._A = null;
+            this._Vi = null;
+            this._Vf = null;
         }
 
         public void CanCompute()
         {
             int count = 0;
-            if(_D != null)
+            if(this._D != null)
+            {
                 count++;
-            if (_T != null)
+            }            
+            if (this._T != null)
+            {
                 count++;
-            if (_A != null)
+            }
+            if (this._A != null)
+            {
                 count++;
-            if (_Vi != null)
+            }
+            if (this._Vi != null)
+            {
                 count++;
-            if (_Vf != null)
+            }
+            if (this._Vf != null)
+            {
                 count++;
-            
-            if(count != 3)
+            }
+
+            if (count != 3)
             {
                 throw new VariablesNotSetException(count.ToString() + " out of 3 Variables Set!");
+            }
+        }
+
+        protected void CheckRadical(double value)
+        {
+            if (value < 0)
+            {
+                throw new InvalidScenarioException();
             }
         }
     }

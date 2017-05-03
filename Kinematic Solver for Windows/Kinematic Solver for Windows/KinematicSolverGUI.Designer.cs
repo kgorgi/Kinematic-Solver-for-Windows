@@ -119,7 +119,7 @@
             this.calcBtn.TabIndex = 10;
             this.calcBtn.Text = "Calculate";
             this.calcBtn.UseVisualStyleBackColor = true;
-            this.calcBtn.Click += new System.EventHandler(this.calcBtn_Click);
+            this.calcBtn.Click += new System.EventHandler(this.CalcBtn_Click);
             // 
             // displacementBtn
             // 
@@ -133,7 +133,7 @@
             this.displacementBtn.TabStop = true;
             this.displacementBtn.Text = " Displacement:";
             this.displacementBtn.UseVisualStyleBackColor = true;
-            this.displacementBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
+            this.displacementBtn.CheckedChanged += new System.EventHandler(this.RatioButton_Click);
             // 
             // finVeloBtn
             // 
@@ -147,7 +147,7 @@
             this.finVeloBtn.TabStop = true;
             this.finVeloBtn.Text = " Final Velocity:";
             this.finVeloBtn.UseVisualStyleBackColor = true;
-            this.finVeloBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
+            this.finVeloBtn.CheckedChanged += new System.EventHandler(this.RatioButton_Click);
             // 
             // initVeloBtn
             // 
@@ -161,7 +161,7 @@
             this.initVeloBtn.TabStop = true;
             this.initVeloBtn.Text = " Initial Velocity:";
             this.initVeloBtn.UseVisualStyleBackColor = true;
-            this.initVeloBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
+            this.initVeloBtn.CheckedChanged += new System.EventHandler(this.RatioButton_Click);
             // 
             // accelBtn
             // 
@@ -175,7 +175,7 @@
             this.accelBtn.TabStop = true;
             this.accelBtn.Text = " Acceleration:";
             this.accelBtn.UseVisualStyleBackColor = true;
-            this.accelBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
+            this.accelBtn.CheckedChanged += new System.EventHandler(this.RatioButton_Click);
             // 
             // timeBtn
             // 
@@ -189,7 +189,7 @@
             this.timeBtn.TabStop = true;
             this.timeBtn.Text = " Time:";
             this.timeBtn.UseVisualStyleBackColor = true;
-            this.timeBtn.CheckedChanged += new System.EventHandler(this.ratioButtonClicked);
+            this.timeBtn.CheckedChanged += new System.EventHandler(this.RatioButton_Click);
             // 
             // displacementUnitLabel
             // 
@@ -292,7 +292,7 @@
             this.clearBtn.TabIndex = 24;
             this.clearBtn.Text = "Clear All";
             this.clearBtn.UseVisualStyleBackColor = true;
-            this.clearBtn.Click += new System.EventHandler(this.clearFields);
+            this.clearBtn.Click += new System.EventHandler(this.ClearFields);
             // 
             // menuStrip1
             // 
@@ -319,14 +319,14 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(146, 30);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(146, 30);
             this.quitToolStripMenuItem.Text = "Quit";
-            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItem_Click);
             // 
             // KinematicSolverGUI
             // 

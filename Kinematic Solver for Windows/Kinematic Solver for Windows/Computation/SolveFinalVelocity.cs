@@ -13,26 +13,26 @@ namespace Kinematic_Solver_for_Windows
         public double CalculateFinalVelocity()
         {
             this.CanCompute();
-            if (_D == null)
+            if (this._D == null)
             {
-                ans = (this.A * this.T) + this.Vi;
+                this.ans = (this.A * this.T) + this.Vi;
             }
-            else if (_T == null)
+            else if (this._T == null)
             {
                 double insideRadical = (this.Vi * this.Vi) + (2 * this.A * this.D);
-                CheckRadical(insideRadical);
-                ans = Math.Sqrt(insideRadical);
-                throw new TwoPossibleAnswersException(ans, ans * -1);
+                this.CheckRadical(insideRadical);
+                this.ans = Math.Sqrt(insideRadical);
+                throw new TwoPossibleAnswersException(this.ans, this.ans * -1);
             }
-            else if (_A == null)
+            else if (this._A == null)
             {
-                ans = ((2 * this.D) / this.T) - this.Vi;
+                this.ans = ((2 * this.D) / this.T) - this.Vi;
             }
-            else if (_Vi == null)
+            else if (this._Vi == null)
             {
-                ans = (this.D + (0.5 * this.A * (this.T * this.T))) / this.T;
+                this.ans = (this.D + (0.5 * this.A * (this.T * this.T))) / this.T;
             } 
-            return ans;
+            return this.ans;
         }
     }
 }

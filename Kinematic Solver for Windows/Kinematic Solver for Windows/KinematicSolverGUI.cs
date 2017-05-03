@@ -14,7 +14,7 @@ namespace Kinematic_Solver_for_Windows
             displacementTextBox.Enabled = false;
         }
 
-        private void ratioButtonClicked(object sender, EventArgs e)
+        private void RatioButton_Click(object sender, EventArgs e)
         {
             displacementTextBox.Enabled = true;
             timeTextBox.Enabled = true;
@@ -27,72 +27,72 @@ namespace Kinematic_Solver_for_Windows
             {
                 case "displacementBtn":
                     displacementTextBox.Enabled = false;
-                    displacementTextBox.Text = "";
+                    displacementTextBox.Text = string.Empty;
                     break;
                 case "timeBtn":
                     timeTextBox.Enabled = false;
-                    timeTextBox.Text = "";
+                    timeTextBox.Text = string.Empty;
                     break;
                 case "accelBtn":
                     accelTextBox.Enabled = false;
-                    accelTextBox.Text = "";
+                    accelTextBox.Text = string.Empty;
                     break;
                 case "initVeloBtn":
                     initVeloTextBox.Enabled = false;
-                    initVeloTextBox.Text = "";
+                    initVeloTextBox.Text = string.Empty;
                     break;
                 case "finVeloBtn":
                     finVeloTextBox.Enabled = false;
-                    finVeloTextBox.Text = "";
+                    finVeloTextBox.Text = string.Empty;
                     break;
                 default:
                     initVeloTextBox.Enabled = false;
-                    initVeloTextBox.Text = "";
+                    initVeloTextBox.Text = string.Empty;
                 break;
             }           
         }
 
-        private void clearFields(object sender, EventArgs e)
+        private void ClearFields(object sender, EventArgs e)
         {
-            displacementTextBox.Text = "";
-            timeTextBox.Text = "";
-            accelTextBox.Text = "";
-            initVeloTextBox.Text = "";
-            finVeloTextBox.Text = "";
+            displacementTextBox.Text = string.Empty;
+            timeTextBox.Text = string.Empty;
+            accelTextBox.Text = string.Empty;
+            initVeloTextBox.Text = string.Empty;
+            finVeloTextBox.Text = string.Empty;
         }
 
-        private void calcBtn_Click(object sender, EventArgs e)
+        private void CalcBtn_Click(object sender, EventArgs e)
         {
             RadioButton[] radList = { displacementBtn, timeBtn, accelBtn, initVeloBtn, finVeloBtn };
             
-            String ClassName = null;
+            string className = null;
             Type classType = null;
             double answer = 0;
             int pos = 0;
 
-            //Reflectively Create Appropriate Class
+            // Reflectively Create Appropriate Class
             KinematicComputer calc = null;
             
             foreach(RadioButton radio in radList)
             {
                 if (radio.Checked)
                 {
-                    String VariableName = radio.Text.Replace(" ", string.Empty);
-                    ClassName = VariableName.Substring(0, VariableName.Length - 1);
-                    //System.Diagnostics.Debug.WriteLine(ClassName.ToString());
-                    classType = Type.GetType("Kinematic_Solver_for_Windows.Solve"+ ClassName);
+                    string variableName = radio.Text.Replace(" ", string.Empty);
+                    className = variableName.Substring(0, variableName.Length - 1);
+                    // System.Diagnostics.Debug.WriteLine(ClassName.ToString());
+                    classType = Type.GetType("Kinematic_Solver_for_Windows.Solve"+ className);
                     calc = (KinematicComputer)Activator.CreateInstance(classType);
                     break;  
                 }
                 pos++;
             }
 
-            //Set Variables (Try Catch)
-            if (!displacementBtn.Checked && String.Compare(displacementTextBox.Text, "") != 0 )
+            // Set Variables (Try Catch)
+            if (!displacementBtn.Checked && string.Compare(displacementTextBox.Text, string.Empty) != 0)
             {
                 calc.D = double.Parse(displacementTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
             }
-            if (!timeBtn.Checked && String.Compare(timeTextBox.Text, "") != 0)
+            if (!timeBtn.Checked && string.Compare(timeTextBox.Text, string.Empty) != 0)
             {
                 try
                 {
@@ -104,61 +104,61 @@ namespace Kinematic_Solver_for_Windows
                     return;
                 }  
             }
-            if (!accelBtn.Checked && String.Compare(accelTextBox.Text, "") != 0)
+            if (!accelBtn.Checked && string.Compare(accelTextBox.Text, string.Empty) != 0)
             {
                 calc.A = double.Parse(accelTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
             }
-            if (!initVeloBtn.Checked && String.Compare(initVeloTextBox.Text, "") != 0)
+            if (!initVeloBtn.Checked && string.Compare(initVeloTextBox.Text, string.Empty) != 0)
             {
                 calc.Vi = double.Parse(initVeloTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
             }
-            if (!finVeloBtn.Checked && String.Compare(finVeloTextBox.Text, "") != 0)
+            if (!finVeloBtn.Checked && string.Compare(finVeloTextBox.Text, string.Empty) != 0)
             {
                 calc.Vf = double.Parse(finVeloTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
             }
 
-            //Reflectively Call Calculate Method on Child Class of KinematicComputer
-            MethodInfo CalcMethod = classType.GetMethod("Calculate" + ClassName);
-            //System.Diagnostics.Debug.WriteLine("Calculate" + ClassName);  
+            // Reflectively Call Calculate Method on Child Class of KinematicComputer
+            MethodInfo calcMethod = classType.GetMethod("Calculate" + className);
+            // System.Diagnostics.Debug.WriteLine("Calculate" + ClassName);  
             try
             {
-                answer = (double)CalcMethod.Invoke(calc, null);
+                answer = (double)calcMethod.Invoke(calc, null);
             }
             catch (TargetInvocationException ex)
             {
                 Exception innerEx = ex.InnerException;
                 if(innerEx is DivideByZeroException)
                 {
-                    String msg = "Invalid Physics Scenario: Cannot Divide by Zero!";
+                    string msg = "Invalid Physics Scenario: Cannot Divide by Zero!";
                     MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if(innerEx is InvalidScenarioException)
                 {
-                    String msg = "Invalid Physics Scenario: Cannot Square Root a Zero or Negative Number!";
+                    string msg = "Invalid Physics Scenario: Cannot Square Root a Zero or Negative Number!";
                     MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 } 
                 else if(innerEx is VariablesNotSetException)
                 {
-                    String msg = "Please Enter Exactly 3 Variables for Calculation";
+                    string msg = "Please Enter Exactly 3 Variables for Calculation";
                     MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if(innerEx is TwoPossibleAnswersException)
                 {
-                    TwoPossibleAnswersException TwoEx = (TwoPossibleAnswersException)innerEx;
-                    String msg = "Two Possible Answers!\n Answer 1: " + TwoEx.FirstValue.ToString() +
-                                "     Answer 2: " + TwoEx.SecondValue.ToString() + "\n Is Answer 1 the correct answer?\n" +
+                    TwoPossibleAnswersException twoEx = (TwoPossibleAnswersException)innerEx;
+                    string msg = "Two Possible Answers!\n Answer 1: " + twoEx.FirstValue.ToString() +
+                                "     Answer 2: " + twoEx.SecondValue.ToString() + "\n Is Answer 1 the correct answer?\n" +
                                 " Select Yes if Answer 1 is.\n Otherwise select No if Answer 2 is correct. ";
                     switch(MessageBox.Show(msg, "Two Possible Answers!", MessageBoxButtons.YesNoCancel, 
                                         MessageBoxIcon.Question))
                     {
                         case DialogResult.Yes:
-                            answer = TwoEx.FirstValue;
+                            answer = twoEx.FirstValue;
                             break;
                         case DialogResult.No:
-                            answer = TwoEx.SecondValue;
+                            answer = twoEx.SecondValue;
                             break;
                         default:
                             return;
@@ -166,21 +166,21 @@ namespace Kinematic_Solver_for_Windows
                 }
             }
 
-            //Display Answer
-            String[] Units = { "m", "s", "m/s^2", "m/s", "m/s" };
-            ClassName = ClassName.Replace("V", " V");
-            String ansStr = "The " + ClassName.ToLower() + " is: " + answer.ToString() + " " + Units[pos];
+            // Display Answer
+            string[] units = { "m", "s", "m/s^2", "m/s", "m/s" };
+            className = className.Replace("V", " V");
+            string ansStr = "The " + className.ToLower() + " is: " + answer.ToString() + " " + units[pos];
             MessageBox.Show(ansStr, "Answer", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String msg = "Kinematic Solver for Windows\n\n" +
+            string msg = "Kinematic Solver for Windows\n\n" +
                          "Version 1.0.0\n\n" +
                          "Design, Programming, Testing\n" +
                          "Done By Kian Gorgichuk\n\n" +

@@ -12,12 +12,12 @@ namespace Kinematic_Solver_for_Windows
 
         public DoubleNumber(double num)
         {
-            _num = num;
+            this._num = num;
         }
 
-        public double num
+        public double Num
         {
-            get { return _num; }
+            get { return this._num; }
         }
 
     }

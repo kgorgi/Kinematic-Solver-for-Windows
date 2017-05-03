@@ -22,18 +22,18 @@ namespace Kinematic_Solver_for_Windows.Exceptions
 
         public TwoPossibleAnswersException(double value1, double value2)
         {
-            _firstValue = value1;
-            _secondValue = value2;
+            this._firstValue = value1;
+            this._secondValue = value2;
         }
 
         public double FirstValue
         {
-            get { return _firstValue; }
+            get { return this._firstValue; }
         }
 
         public double SecondValue
         {
-            get { return _secondValue; }
+            get { return this._secondValue; }
         }
     }
 }

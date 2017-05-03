@@ -11,28 +11,28 @@ namespace Kinematic_Solver_for_Windows
         private double ans;
         public double CalculateDisplacement()
         {
-           this. CanCompute();
-            if (_T == null)
+           this.CanCompute();
+            if (this._T == null)
             {
                 if(this.A == 0)
                 {
                     throw new DivideByZeroException();
                 }
-                ans = ((this.Vf * this.Vf) - (this.Vi * this.Vi)) / (2 * this.A);
+                this.ans = ((this.Vf * this.Vf) - (this.Vi * this.Vi)) / (2 * this.A);
             }
-            else if (_A == null)
+            else if (this._A == null)
             {
-                ans = ((this.Vi + this.Vf) / 2) * this.T;
+                this.ans = ((this.Vi + this.Vf) / 2) * this.T;
             }
-            else if (_Vi == null)
+            else if (this._Vi == null)
             {
-                ans = (this.Vf * this.T) - (0.5 * this.A * (this.T * this.T));
+                this.ans = (this.Vf * this.T) - (0.5 * this.A * (this.T * this.T));
             }
-            else if (_Vf == null)
+            else if (this._Vf == null)
             {
-                ans = (this.Vi * this.T) + (0.5 * this.A * (this.T * this.T));
+                this.ans = (this.Vi * this.T) + (0.5 * this.A * (this.T * this.T));
             } 
-            return ans;
+            return this.ans;
         }
     }
 }

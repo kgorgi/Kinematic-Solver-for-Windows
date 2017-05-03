@@ -9,30 +9,31 @@ namespace Kinematic_Solver_for_Windows
     public class SolveAcceleration:KinematicComputer
     {
         private double ans;
+
         public double CalculateAcceleration()
         {
             this.CanCompute();
-            if (_D == null)
+            if (this._D == null)
             {
-                ans = (this.Vf - this.Vi) / this.T;
+                this.ans = (this.Vf - this.Vi) / this.T;
             }
-            else if (_T == null)
+            else if (this._T == null)
             {
                 if(this.D == 0)
                 {
                     throw new DivideByZeroException();
                 }
-                ans = ((this.Vf * this.Vf) - (this.Vi * this.Vi)) / (2 * this.D);
+                this.ans = ((this.Vf * this.Vf) - (this.Vi * this.Vi)) / (2 * this.D);
             }
-            else if (_Vi == null)
+            else if (this._Vi == null)
             { 
-                ans = (this.D - (this.Vf * this.T)) / (-1 * 0.5 * (this.T * this.T));
+                this.ans = (this.D - (this.Vf * this.T)) / (-1 * 0.5 * (this.T * this.T));
             }
-            else if (_Vf == null)
+            else if (this._Vf == null)
             {
-                ans = (this.D - (this.Vi * this.T)) / (0.5 * (this.T * this.T));
+                this.ans = (this.D - (this.Vi * this.T)) / (0.5 * (this.T * this.T));
             } 
-            return ans;
+            return this.ans;
         }
     }
 }
