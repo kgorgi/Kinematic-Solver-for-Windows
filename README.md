@@ -10,4 +10,4 @@ http://www.physicsclassroom.com/Physics-Tutorial/1-D-Kinematics
 The main motivation for this project is to learn how to create GUI applications on Windows computers in addition to applying the concepts of object oriented programming that I have learned through my academic studies. These concepts include reflection, polymorphism, inheritance, unit tests, and test driven development. 
 
 ## Installation: 
-To use Kinematic Solver for Windows please download and unzip the "Kinematic_Solver_for_Windows.zip" file in the releases tab of this GitHub project. Please note that the current release of Kinematic Solver for Windows is a beta release, as there are unfinished features and assets in addition to possible bugs or unhandled exceptions. 
+To use Kinematic Solver for Windows please download and unzip the "Kinematic_Solver_for_Windows.zip" file in the releases tab of this GitHub project. Please note that .NET Framework 4.5.2 is required. 
