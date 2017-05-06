@@ -1,12 +1,14 @@
-﻿using Kinematic_Solver_for_Windows.Exceptions;
-using System;
+﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
+using Kinematic_Solver_for_Windows.Exceptions;
 
 namespace Kinematic_Solver_for_Windows
 {
     public partial class KinematicSolverGUI : Form
     {
+        private double answer;
+
         public KinematicSolverGUI()
         {
             InitializeComponent();
@@ -48,11 +50,11 @@ namespace Kinematic_Solver_for_Windows
                 default:
                     initVeloTextBox.Enabled = false;
                     initVeloTextBox.Text = string.Empty;
-                break;
+                    break;
             }           
         }
 
-        private void ClearFields(object sender, EventArgs e)
+        private void ClearBtn_Click(object sender, EventArgs e)
         {
             displacementTextBox.Text = string.Empty;
             timeTextBox.Text = string.Empty;
@@ -67,7 +69,6 @@ namespace Kinematic_Solver_for_Windows
             
             string className = null;
             Type classType = null;
-            double answer = 0;
             int pos = 0;
 
             // Reflectively Create Appropriate Class
@@ -87,42 +88,49 @@ namespace Kinematic_Solver_for_Windows
                 pos++;
             }
 
-            // Set Variables (Try Catch)
-            if (!displacementBtn.Checked && string.Compare(displacementTextBox.Text, string.Empty) != 0)
+            // Set Variables
+            try
             {
-                calc.D = double.Parse(displacementTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
-            }
-            if (!timeBtn.Checked && string.Compare(timeTextBox.Text, string.Empty) != 0)
-            {
-                try
+                if (!displacementBtn.Checked && string.Compare(displacementTextBox.Text, string.Empty) != 0)
+                {
+                    calc.D = double.Parse(displacementTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                }
+                if (!timeBtn.Checked && string.Compare(timeTextBox.Text, string.Empty) != 0)
                 {
                     calc.T = double.Parse(timeTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
                 }
-                catch (ArgumentException)
+                if (!accelBtn.Checked && string.Compare(accelTextBox.Text, string.Empty) != 0)
                 {
-                    MessageBox.Show("Time Cannot be Zero or Negative!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }  
+                    calc.A = double.Parse(accelTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                }
+                if (!initVeloBtn.Checked && string.Compare(initVeloTextBox.Text, string.Empty) != 0)
+                {
+                    calc.Vi = double.Parse(initVeloTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                }
+                if (!finVeloBtn.Checked && string.Compare(finVeloTextBox.Text, string.Empty) != 0)
+                {
+                    calc.Vf = double.Parse(finVeloTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                }
             }
-            if (!accelBtn.Checked && string.Compare(accelTextBox.Text, string.Empty) != 0)
+            catch (FormatException)
             {
-                calc.A = double.Parse(accelTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                MessageBox.Show("Formatting Number Error!\n" +
+                                "Atleast One of the Variables Values is Invalid!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            if (!initVeloBtn.Checked && string.Compare(initVeloTextBox.Text, string.Empty) != 0)
+            catch (ArgumentException)
             {
-                calc.Vi = double.Parse(initVeloTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                MessageBox.Show("Time Cannot be Zero or Negative!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            if (!finVeloBtn.Checked && string.Compare(finVeloTextBox.Text, string.Empty) != 0)
-            {
-                calc.Vf = double.Parse(finVeloTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
-            }
-
+            
             // Reflectively Call Calculate Method on Child Class of KinematicComputer
             MethodInfo calcMethod = classType.GetMethod("Calculate" + className);
             // System.Diagnostics.Debug.WriteLine("Calculate" + ClassName);  
+
             try
             {
-                answer = (double)calcMethod.Invoke(calc, null);
+                this.answer = (double)calcMethod.Invoke(calc, null);
             }
             catch (TargetInvocationException ex)
             {
@@ -135,7 +143,7 @@ namespace Kinematic_Solver_for_Windows
                 }
                 else if(innerEx is InvalidScenarioException)
                 {
-                    string msg = "Invalid Physics Scenario: Cannot Square Root a Zero or Negative Number!";
+                    string msg = "Invalid Physics Scenario:\n The Current Scenario is not Physically Possible!";
                     MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 } 
@@ -155,10 +163,10 @@ namespace Kinematic_Solver_for_Windows
                                         MessageBoxIcon.Question))
                     {
                         case DialogResult.Yes:
-                            answer = twoEx.FirstValue;
+                            this.answer = twoEx.FirstValue;
                             break;
                         case DialogResult.No:
-                            answer = twoEx.SecondValue;
+                            this.answer = twoEx.SecondValue;
                             break;
                         default:
                             return;

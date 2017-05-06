@@ -35,6 +35,14 @@ namespace KinematicComputerUnitTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidScenarioException))]
+        public void InvalidScenario()
+        {
+            SolveTime ST = InitTest(-1, 13, 5, 2, 0);
+            ST.CalculateTime();
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(DivideByZeroException))]
         public void DivideByZeroVelo()
         {

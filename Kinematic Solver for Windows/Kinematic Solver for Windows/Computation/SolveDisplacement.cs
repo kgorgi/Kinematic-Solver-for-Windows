@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kinematic_Solver_for_Windows
 {
@@ -12,7 +8,7 @@ namespace Kinematic_Solver_for_Windows
         public double CalculateDisplacement()
         {
            this.CanCompute();
-            if (this._T == null)
+            if (this.tObj == null)
             {
                 if(this.A == 0)
                 {
@@ -20,15 +16,15 @@ namespace Kinematic_Solver_for_Windows
                 }
                 this.ans = ((this.Vf * this.Vf) - (this.Vi * this.Vi)) / (2 * this.A);
             }
-            else if (this._A == null)
+            else if (this.aObj == null)
             {
                 this.ans = ((this.Vi + this.Vf) / 2) * this.T;
             }
-            else if (this._Vi == null)
+            else if (this.viObj == null)
             {
                 this.ans = (this.Vf * this.T) - (0.5 * this.A * (this.T * this.T));
             }
-            else if (this._Vf == null)
+            else if (this.vfObj == null)
             {
                 this.ans = (this.Vi * this.T) + (0.5 * this.A * (this.T * this.T));
             } 

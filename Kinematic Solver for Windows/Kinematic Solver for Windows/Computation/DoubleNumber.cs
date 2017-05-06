@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kinematic_Solver_for_Windows
+﻿namespace Kinematic_Solver_for_Windows
 {
     public class DoubleNumber
     {
-        private double _num;
+        private double num;
 
         public DoubleNumber(double num)
         {
-            this._num = num;
+            this.num = num;
         }
 
         public double Num
         {
-            get { return this._num; }
+            get { return this.num; }
         }
-
     }
 }

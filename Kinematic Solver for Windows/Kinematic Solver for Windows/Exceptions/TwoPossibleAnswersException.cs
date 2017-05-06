@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kinematic_Solver_for_Windows.Exceptions
 {
     public class TwoPossibleAnswersException:Exception
     {
-        private double _firstValue;
-        private double _secondValue;
+        private double firstValue;
+        private double secondValue;
         public TwoPossibleAnswersException()
         {
+
         }
 
         public TwoPossibleAnswersException(string message)
@@ -22,18 +19,18 @@ namespace Kinematic_Solver_for_Windows.Exceptions
 
         public TwoPossibleAnswersException(double value1, double value2)
         {
-            this._firstValue = value1;
-            this._secondValue = value2;
+            this.firstValue = value1;
+            this.secondValue = value2;
         }
 
         public double FirstValue
         {
-            get { return this._firstValue; }
+            get { return this.firstValue; }
         }
 
         public double SecondValue
         {
-            get { return this._secondValue; }
+            get { return this.secondValue; }
         }
     }
 }

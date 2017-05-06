@@ -292,7 +292,7 @@
             this.clearBtn.TabIndex = 24;
             this.clearBtn.Text = "Clear All";
             this.clearBtn.UseVisualStyleBackColor = true;
-            this.clearBtn.Click += new System.EventHandler(this.ClearFields);
+            this.clearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // menuStrip1
             // 
@@ -361,7 +361,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "KinematicSolverGUI";
-            this.Text = "Kinematic Solver for Windows";
+            this.Text = "Kinematic Solver";
             this.Load += new System.EventHandler(this.KinematicSolverGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).EndInit();
             this.menuStrip1.ResumeLayout(false);

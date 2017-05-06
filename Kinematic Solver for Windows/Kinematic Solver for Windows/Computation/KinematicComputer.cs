@@ -1,86 +1,82 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Kinematic_Solver_for_Windows.Exceptions;
 
 namespace Kinematic_Solver_for_Windows
 {
     public class KinematicComputer
     {
-        protected DoubleNumber _D = null;
-        protected DoubleNumber _T = null;
-        protected DoubleNumber _A = null;
-        protected DoubleNumber _Vi = null;
-        protected DoubleNumber _Vf = null;
+        protected DoubleNumber dObj = null;
+        protected DoubleNumber tObj = null;
+        protected DoubleNumber aObj = null;
+        protected DoubleNumber viObj = null;
+        protected DoubleNumber vfObj = null;
 
         public double D
         {
-            get { return this._D.Num; }
-            set { this._D = new DoubleNumber(value); }
+            get { return this.dObj.Num; }
+            set { this.dObj = new DoubleNumber(value); }
         }
 
         public double T
         {
-            get { return this._T.Num; }
+            get { return this.tObj.Num; }
             set
             {
                 if(value <= 0)
                 {
                     throw new ArgumentException("Time cannot be set to zero or negative.");
                 }
-                this._T = new DoubleNumber(value);
+                this.tObj = new DoubleNumber(value);
             }
         }
 
         public double A
         {
-            get { return this._A.Num; }
-            set { this._A = new DoubleNumber(value); }
+            get { return this.aObj.Num; }
+            set { this.aObj = new DoubleNumber(value); }
         }
 
         public double Vi
         {
-            get { return this._Vi.Num; }
-            set { this._Vi = new DoubleNumber(value); }
+            get { return this.viObj.Num; }
+            set { this.viObj = new DoubleNumber(value); }
         }
 
         public double Vf
         {
-            get { return this._Vf.Num; }
-            set { this._Vf = new DoubleNumber(value); }
+            get { return this.vfObj.Num; }
+            set { this.vfObj = new DoubleNumber(value); }
         }
 
         public void ClearVariables()
         {
-            this._D = null;
-            this._T = null;
-            this._A = null;
-            this._Vi = null;
-            this._Vf = null;
+            this.dObj = null;
+            this.tObj = null;
+            this.aObj = null;
+            this.viObj = null;
+            this.vfObj = null;
         }
 
         public void CanCompute()
         {
             int count = 0;
-            if(this._D != null)
+            if(this.dObj != null)
             {
                 count++;
             }            
-            if (this._T != null)
+            if (this.tObj != null)
             {
                 count++;
             }
-            if (this._A != null)
+            if (this.aObj != null)
             {
                 count++;
             }
-            if (this._Vi != null)
+            if (this.viObj != null)
             {
                 count++;
             }
-            if (this._Vf != null)
+            if (this.vfObj != null)
             {
                 count++;
             }

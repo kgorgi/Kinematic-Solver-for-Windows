@@ -1,16 +1,11 @@
 ﻿using Kinematic_Solver_for_Windows.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kinematic_Solver_for_Windows
 {
     public class SolveTime:KinematicComputer
     {
         private double ans;
-
         public static double QuadEquation(double a, double b, double c)
         {
             // Determine Roots
@@ -38,7 +33,7 @@ namespace Kinematic_Solver_for_Windows
         public double CalculateTime()
         {
             this.CanCompute();
-            if (this._D == null)
+            if (this.dObj == null)
             {
                 if(this.A == 0)
                 {
@@ -46,7 +41,7 @@ namespace Kinematic_Solver_for_Windows
                 }
                 this.ans = (this.Vf - this.Vi) / this.A;
             }
-            else if (this._A == null)
+            else if (this.aObj == null)
             {
                 double dem = this.Vi + this.Vf;
                 if(dem == 0)
@@ -55,7 +50,7 @@ namespace Kinematic_Solver_for_Windows
                 }
                 this.ans = (2 * this.D) / (dem);
             }
-            else if (this._Vi == null)
+            else if (this.viObj == null)
             {
                 if (this.A == 0)
                 {
@@ -67,7 +62,7 @@ namespace Kinematic_Solver_for_Windows
                     this.ans = QuadEquation((0.5 * this.A), (-1 * this.Vf), this.D);
                 }
             }
-            else if (this._Vf == null)
+            else if (this.vfObj == null)
             {
                 if (this.A == 0)
                 {
@@ -79,6 +74,10 @@ namespace Kinematic_Solver_for_Windows
                     this.ans = QuadEquation((0.5 * this.A), this.Vi, (-1 * this.D));
                 }
             } 
+            if (this.ans <= 0)
+            {
+                throw new InvalidScenarioException();
+            }
             return this.ans;
         }
     }
