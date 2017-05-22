@@ -109,9 +109,9 @@ namespace KinematicComputerUnitTests
                 }
                 catch (TwoPossibleAnswersException ex)
                 {
-                    if(ex.FirstValue != ans && ex.SecondValue != ans)
+                    if (ex.FirstValue != ans && ex.SecondValue != ans)
                     {
-                        string msg = "1st Value: " + ex.FirstValue.ToString() + " 2nd Value:" + ex.SecondValue.ToString() + "\n";
+                        string msg = "1st Value: " + ex.FirstValue.ToString() + " 2nd Value: " + ex.SecondValue.ToString() + "\n";
                         Assert.Fail(msg + "Variable Skipped: " + skip[i]);
                     }
                 }
