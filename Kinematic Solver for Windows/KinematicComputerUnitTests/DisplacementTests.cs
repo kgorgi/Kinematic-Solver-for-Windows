@@ -29,26 +29,32 @@ namespace KinematicComputerUnitTests
         [ExpectedException(typeof(DivideByZeroException))]
         public void DivideByZero()
         {
-            SolveDisplacement SD = InitTest(-1, 0, 5, 5, 0);
+            SolveDisplacement SD = InitTest(-1, 0, 5, 5, 'T');
             SD.CalculateDisplacement();
         }
 
-        private static SolveDisplacement InitTest(double T, double A, double Vi, double Vf, int skip)
+        /* For the Parameter Skip:
+         * Time = T
+         * Acceleration = A
+         * Initial Velocity = I
+         * Final Velocity = F
+         */
+        private static SolveDisplacement InitTest(double T, double A, double Vi, double Vf, char skip)
         {
             SolveDisplacement compute = new SolveDisplacement();
-            if(skip != 0)
+            if(skip != 'T')
             {
                 compute.T = T;
             }
-            if (skip != 1)
+            if (skip != 'A')
             {
                 compute.A = A;
             }
-            if (skip != 2)
+            if (skip != 'I')
             {
                 compute.Vi = Vi;
             }
-            if (skip != 3)
+            if (skip != 'F')
             {
                 compute.Vf = Vf;
             }
@@ -63,7 +69,7 @@ namespace KinematicComputerUnitTests
             int i;
             for (i = 0; i < 4; i++)
             {
-                SolveDisplacement com = InitTest(T, A, Vi, Vf, i);
+                SolveDisplacement com = InitTest(T, A, Vi, Vf, skip[i]);
                 Assert.AreEqual(ans, com.CalculateDisplacement(), "Variable Skipped: " + skip[i]);
             }
         }
