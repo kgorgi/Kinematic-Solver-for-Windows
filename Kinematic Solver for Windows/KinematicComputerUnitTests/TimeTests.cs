@@ -46,7 +46,7 @@ namespace KinematicComputerUnitTests
         [ExpectedException(typeof(DivideByZeroException))]
         public void DivideByZeroVelo()
         {
-            SolveTime ST = InitTest(-1, 0, 5, -5, 'D');
+            SolveTime ST = InitTest(-1, 5, 5, -5, 'A');
             ST.CalculateTime();
         }
 
