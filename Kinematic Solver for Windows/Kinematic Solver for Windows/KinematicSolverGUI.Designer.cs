@@ -330,6 +330,7 @@
             // 
             // KinematicSolverGUI
             // 
+            this.AcceptButton = this.calcBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 587);

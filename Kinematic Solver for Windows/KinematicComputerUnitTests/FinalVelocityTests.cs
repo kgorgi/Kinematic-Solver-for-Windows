@@ -30,26 +30,32 @@ namespace KinematicComputerUnitTests
         [ExpectedException(typeof(InvalidScenarioException))]
         public void ImpossibleScenario()
         {
-            SolveFinalVelocity com = InitTest(1, -1, -5, 0.5, 1);
+            SolveFinalVelocity com = InitTest(1, -1, -5, 0.5, 'T');
             com.CalculateFinalVelocity();   
        }
-
-        private static SolveFinalVelocity InitTest(double D, double T, double A, double Vi, int skip)
+        
+        /* For the Parameter Skip:
+         * Displacement = D
+         * Time = T
+         * Acceleration = A
+         * Initial Velocity = I
+         */
+        private static SolveFinalVelocity InitTest(double D, double T, double A, double Vi, char skip)
         {
             SolveFinalVelocity compute = new SolveFinalVelocity();
-            if (skip != 0)
+            if (skip != 'D')
             {
                 compute.D = D;
             }
-            if (skip != 1)
+            if (skip != 'T')
             {
                 compute.T = T;
             }
-            if (skip != 2)
+            if (skip != 'A')
             {
                 compute.A = A;
             }
-            if (skip != 3)
+            if (skip != 'I')
             {
                 compute.Vi = Vi;
             }
@@ -59,20 +65,22 @@ namespace KinematicComputerUnitTests
 
         private static void IterateVariables(double D, double T, double A, double Vi, double ans)
         {
+            char[] skip = { 'D', 'T', 'A', 'I' };
+
             int i;
             for (i = 0; i < 4; i++)
             {
-                SolveFinalVelocity com = InitTest(D, T, A, Vi, i);
+                SolveFinalVelocity com = InitTest(D, T, A, Vi, skip[i]);
 
                 try
                 {
-                    Assert.AreEqual(ans, com.CalculateFinalVelocity(), "Variable Skipped #: " + i.ToString());
+                    Assert.AreEqual(ans, com.CalculateFinalVelocity(), "Variable Skipped #: " + skip[i]);
                 }
                 catch (TwoPossibleAnswersException ex)
                 {
                     double ansABS = Math.Abs(ans);
-                    Assert.AreEqual(ansABS, Math.Abs(ex.FirstValue), "Variable Skipped #: " + i.ToString());
-                    Assert.AreEqual(ansABS, Math.Abs(ex.SecondValue), "Variable Skipped #: " + i.ToString());
+                    Assert.AreEqual(ansABS, Math.Abs(ex.FirstValue), "Variable Skipped #: " + skip[i]);
+                    Assert.AreEqual(ansABS, Math.Abs(ex.SecondValue), "Variable Skipped #: " + skip[i]);
                 }   
             }
         }

@@ -29,26 +29,32 @@ namespace KinematicComputerUnitTests
         [ExpectedException(typeof(DivideByZeroException))]
         public void DivideByZero()
         {
-            SolveAcceleration SA = InitTest(0, -1, 5, 5, 1);
+            SolveAcceleration SA = InitTest(0, -1, 5, 5, 'T');
             SA.CalculateAcceleration();
         }
 
-        private static SolveAcceleration InitTest(double D, double T, double Vi, double Vf, int skip)
+        /* For the Parameter Skip:
+         * Displacement = D
+         * Time = T
+         * Initial Velocity = I
+         * Final Velocity = F
+         */
+        private static SolveAcceleration InitTest(double D, double T, double Vi, double Vf, char skip)
         {
             SolveAcceleration compute = new SolveAcceleration();
-            if (skip != 0)
+            if (skip != 'D')
             {
                 compute.D = D;
             }
-            if (skip != 1)
+            if (skip != 'T')
             {
                 compute.T = T;
             }
-            if (skip != 2)
+            if (skip != 'I')
             {
                 compute.Vi = Vi;
             }
-            if (skip != 3)
+            if (skip != 'F')
             {
                 compute.Vf = Vf;
             }
@@ -58,11 +64,13 @@ namespace KinematicComputerUnitTests
 
         private static void IterateVariables(double D, double T, double Vi, double Vf, double ans)
         {
+            char[] skip = { 'D', 'T', 'I', 'F' };
+
             int i;
             for (i = 0; i < 4; i++)
             {
-                SolveAcceleration com = InitTest(D, T, Vi, Vf, i);
-                Assert.AreEqual(ans, com.CalculateAcceleration(), "Variable Skipped #: " + i.ToString());
+                SolveAcceleration com = InitTest(D, T, Vi, Vf, skip[i]);
+                Assert.AreEqual(ans, com.CalculateAcceleration(), "Variable Skipped: " + skip[i]);
             }
         }
     }

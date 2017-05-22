@@ -30,7 +30,7 @@ namespace KinematicComputerUnitTests
         [ExpectedException(typeof(DivideByZeroException))]
         public void DivideByZeroAccel()
         {
-            SolveTime ST = InitTest(-1, 0, 5, 5, 0);
+            SolveTime ST = InitTest(-1, 0, 5, 5, 'D');
             ST.CalculateTime();
         }
 
@@ -38,7 +38,7 @@ namespace KinematicComputerUnitTests
         [ExpectedException(typeof(InvalidScenarioException))]
         public void InvalidScenario()
         {
-            SolveTime ST = InitTest(-1, 13, 5, 2, 0);
+            SolveTime ST = InitTest(-1, 13, 5, 2, 'D');
             ST.CalculateTime();
         }
 
@@ -46,26 +46,48 @@ namespace KinematicComputerUnitTests
         [ExpectedException(typeof(DivideByZeroException))]
         public void DivideByZeroVelo()
         {
-            SolveTime ST = InitTest(-1, 0, 5, -5, 0);
+            SolveTime ST = InitTest(-1, 0, 5, -5, 'D');
             ST.CalculateTime();
         }
 
-        private static SolveTime InitTest(double D, double A, double Vi, double Vf, int skip)
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException))]
+        public void DivideByZeroInitVeloQuad()
+        {
+            SolveTime ST = InitTest(5, 0, 0, -1, 'F');
+            ST.CalculateTime();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException))]
+        public void DivideByZeroFinVeloQuad()
+        {
+            SolveTime ST = InitTest(5, 0, -1, 0, 'I');
+            ST.CalculateTime();
+        }
+
+        /* For the Parameter Skip:
+         * Displacement = D
+         * Acceleration = A
+         * Initial Velocity = I
+         * Final Velocity = F
+         */
+        private static SolveTime InitTest(double D, double A, double Vi, double Vf, char skip)
         {
             SolveTime compute = new SolveTime();
-            if (skip != 0)
+            if (skip != 'D')
             {
                 compute.D = D;
             }
-            if (skip != 1)
+            if (skip != 'A')
             {
                 compute.A = A;
             }
-            if (skip != 2)
+            if (skip != 'I')
             {
                 compute.Vi = Vi;
             }
-            if (skip != 3)
+            if (skip != 'F')
             {
                 compute.Vf = Vf;
             }
@@ -75,19 +97,22 @@ namespace KinematicComputerUnitTests
 
         private static void IterateVariables(double D, double A, double Vi, double Vf, double ans)
         {
+            char[] skip = { 'D', 'A', 'I', 'F' };
+
             int i;
             for (i = 0; i < 4; i++)
             {
-                SolveTime com = InitTest(D, A, Vi, Vf, i);
+                SolveTime com = InitTest(D, A, Vi, Vf, skip[i]);
                 try
                 {
-                    Assert.AreEqual(ans, com.CalculateTime(), "Variable Skipped #: " + i.ToString());
+                    Assert.AreEqual(ans, com.CalculateTime(), "Variable Skipped: " + skip[i]);
                 }
                 catch (TwoPossibleAnswersException ex)
                 {
                     if(ex.FirstValue != ans && ex.SecondValue != ans)
                     {
-                        Assert.Fail();
+                        string msg = "1st Value: " + ex.FirstValue.ToString() + " 2nd Value:" + ex.SecondValue.ToString() + "\n";
+                        Assert.Fail(msg + "Variable Skipped: " + skip[i]);
                     }
                 }
             }

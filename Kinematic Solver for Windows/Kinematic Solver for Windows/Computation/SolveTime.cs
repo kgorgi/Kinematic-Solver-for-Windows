@@ -37,7 +37,7 @@ namespace Kinematic_Solver_for_Windows
             {
                 if(this.A == 0)
                 {
-                    throw new DivideByZeroException();
+                    throw new DivideByZeroException("Acceleration Cannot Equal Zero!");
                 }
                 this.ans = (this.Vf - this.Vi) / this.A;
             }
@@ -46,7 +46,7 @@ namespace Kinematic_Solver_for_Windows
                 double dem = this.Vi + this.Vf;
                 if(dem == 0)
                 {
-                    throw new DivideByZeroException();
+                    throw new DivideByZeroException("Initial Velocity + Final Velocity Cannot Equal Zero!");
                 }
                 this.ans = (2 * this.D) / (dem);
             }
@@ -54,6 +54,10 @@ namespace Kinematic_Solver_for_Windows
             {
                 if (this.A == 0)
                 {
+                    if (this.Vf == 0)
+                    {
+                        throw new DivideByZeroException("Final Velocity Cannot Equal Zero!");
+                    }
                     this.ans = Math.Abs(this.D / this.Vf);
                 }
                 else
@@ -66,7 +70,11 @@ namespace Kinematic_Solver_for_Windows
             {
                 if (this.A == 0)
                 {
-                    this.ans = Math.Abs(this.D / this.Vf);
+                    if(this.Vi ==0)
+                    {
+                        throw new DivideByZeroException("Initial Velocity Cannot Equal Zero!");
+                    }
+                    this.ans = Math.Abs(this.D / this.Vi);
                 }
                 else
                 {

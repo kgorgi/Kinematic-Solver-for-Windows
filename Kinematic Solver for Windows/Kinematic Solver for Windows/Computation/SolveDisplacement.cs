@@ -12,7 +12,7 @@ namespace Kinematic_Solver_for_Windows
             {
                 if(this.A == 0)
                 {
-                    throw new DivideByZeroException();
+                    throw new DivideByZeroException("Acceleration Cannot Equal Zero!");
                 }
                 this.ans = ((this.Vf * this.Vf) - (this.Vi * this.Vi)) / (2 * this.A);
             }

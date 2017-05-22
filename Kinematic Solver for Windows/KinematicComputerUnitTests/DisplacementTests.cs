@@ -58,11 +58,13 @@ namespace KinematicComputerUnitTests
 
         private static void IterateVariables(double T, double A, double Vi, double Vf, double ans)
         {
+            char[] skip = { 'T', 'A', 'I', 'F' };
+
             int i;
             for (i = 0; i < 4; i++)
             {
                 SolveDisplacement com = InitTest(T, A, Vi, Vf, i);
-                Assert.AreEqual(ans, com.CalculateDisplacement(), "Variable Skipped #: " + i.ToString());
+                Assert.AreEqual(ans, com.CalculateDisplacement(), "Variable Skipped: " + skip[i]);
             }
         }
     }

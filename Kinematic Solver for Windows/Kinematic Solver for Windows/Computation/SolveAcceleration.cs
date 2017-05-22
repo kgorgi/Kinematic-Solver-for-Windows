@@ -16,7 +16,7 @@ namespace Kinematic_Solver_for_Windows
             {
                 if(this.D == 0)
                 {
-                    throw new DivideByZeroException();
+                    throw new DivideByZeroException("Displacement Cannot Equal Zero!");
                 }
                 this.ans = ((this.Vf * this.Vf) - (this.Vi * this.Vi)) / (2 * this.D);
             }

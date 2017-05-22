@@ -115,7 +115,7 @@ namespace Kinematic_Solver_for_Windows
             catch (FormatException)
             {
                 MessageBox.Show("Formatting Number Error!\n" +
-                                "Atleast One of the Variables Values is Invalid!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                "At least One of the Variables Values is Invalid!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             catch (ArgumentException)
@@ -137,7 +137,8 @@ namespace Kinematic_Solver_for_Windows
                 Exception innerEx = ex.InnerException;
                 if(innerEx is DivideByZeroException)
                 {
-                    string msg = "Invalid Physics Scenario: Cannot Divide by Zero!";
+                    string msg = "Invalid Physics Scenario: Cannot Divide by Zero!\n" + innerEx.Message;
+                  
                     MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -189,7 +190,7 @@ namespace Kinematic_Solver_for_Windows
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string msg = "Kinematic Solver for Windows\n\n" +
-                         "Version 1.0.0\n\n" +
+                         "Version 1.0.1\n\n" +
                          "Design, Programming, Testing\n" +
                          "Done By Kian Gorgichuk\n\n" +
                          "Special Thanks to Ms. Bater!\n\n" +
