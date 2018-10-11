@@ -9,12 +9,10 @@ http://www.physicsclassroom.com/Physics-Tutorial/1-D-Kinematics
 ## Demos
 
 ### Computation of Kinematic Problems
-![](DemoGifs/Calculations.gif?raw=true)
+<img src="https://raw.githubusercontent.com/kgorgi/Kinematic-Solver-for-Windows/master/DemoGifs/Calculations.gif" width="60%" height="60%">
 
 ### User Input Error Handling
-![](DemoGifs/ErrorHandling.gif?raw=true)
-
-
+<img src="https://raw.githubusercontent.com/kgorgi/Kinematic-Solver-for-Windows/master/DemoGifs/ErrorHandling.gif" width="60%" height="60%">
 
 ## Motivation:
 The main motivation for this project is to learn how to create GUI applications on Windows computers in addition to applying the concepts of object oriented programming that I have learned through my academic studies. These concepts include reflection, polymorphism, inheritance, unit tests, and test driven development. 
